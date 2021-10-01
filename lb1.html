@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Юля Дмитриева</title>
+    <meta charset="utf-8">
+</head>
+<h1>Ответ:</h1>
+<body>
+    <script type="text/javascript">
+        var n = Number(prompt("Введите n:"));
+        var x = Number(prompt("Введите число между -1 и 1:"));
+        var b = 0;
+        for(var a=0; a<=n; a++){
+            b=b+((x**(2*a+1))/(2*a+1));
+        }
+        b=b*2;
+        document.writeln(b);
+    </script>
+</body>
+</html>
