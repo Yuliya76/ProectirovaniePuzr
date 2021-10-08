@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Юля Дмитриева</title>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        //функция для создания массива пользователем
+        function newMas(){
+            var n = Number(prompt("Введите количество элементов:"));
+            var nMas = [];
+            for(var i=0; i<n; i++){
+                nMas[i]=Number(prompt("Введите число:"));
+            }
+            return nMas;
+        }
+
+        //функция для поиска индекса максимального элемента
+        function findIMax(arr){
+            var max=0;
+            for(var i=1; i<arr.length; i++){
+                if(arr[i]>arr[max]){
+                    max=i;
+                }
+            }
+            return max;
+        }
+        var a = Number(prompt("Введите начало интервала: "));
+        var b = Number(prompt("Введите конец интервала: "));
+
+        var myArr = newMas();
+        
+        //поиск максимального элемента
+        var maxEl=myArr[findIMax(myArr)];
+
+        //вычисляем сумму элементов массива, расположенных до последнего положительного числа
+        var sumElArr = 0;
+        var indLastPolozh = 0;
+        for(var i=myArr.length-1; i>=0; i--){
+            if(myArr[i]>0){
+                indLastPolozh = i;
+                break;
+            }
+        }
+        for(var j = 0; j<indLastPolozh; j++){
+            sumElArr=myArr[j]+sumElArr;
+        }
+
+        //сжать массив, убрав оттуда элементы находящиеся в интервале от a до b
+        var l = 0;
+        while (l<myArr.length){
+            if((Math.abs(myArr[l])>=a)&(Math.abs(myArr[l])<=b)){
+                myArr.splice(l,1);
+            }
+            else{
+                l++;
+            }
+        }
+
+        var arr = myArr.join("; ");
+
+        document.writeln("Максимальный элемент массива: "+maxEl+"; Сумма элементов массива, расположенных до последнего положительного элемента: "+sumElArr+"; Сжатый массив, исключающий элнменты, чьи модули находятся в интервале ["+a+"; "+b+"]: "+arr);
+    </script>
+</head>
+<body>
+</body>
+</html>
