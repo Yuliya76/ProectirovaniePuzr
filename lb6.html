@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Юля Дмитриева</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <script type="text/javascript">
+        var x = Number(prompt("Введите первую координату:"));
+        var y = Number(prompt("Введите вторую координату:"));
+        var z = Number(prompt("Введите третью координату:"));
+        function CreateVector(x, y, z){
+            this.x=x;
+            this.y=y;
+            this.z=z;
+            this.DlinaV=function(){
+                var len = ((this.x**2)+(this.y**2)+(this.z**2))**(1/2);
+                document.write("Длина вектора = "+len);
+            }
+        }
+        var vector = new CreateVector(x, y, z);
+        vector.DlinaV();
+    </script>
+</body>
+</html>
